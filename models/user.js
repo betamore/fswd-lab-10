@@ -22,7 +22,8 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true,
         notEmpty: true
       }
-    }
+    },
+    emailKey: DataTypes.STRING
   }, {
     instanceMethods: {
       isValidPassword: function(password) {
@@ -33,6 +34,16 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         User.hasMany(models.Task);
       }
+    },
+    hooks: {
+      beforeCreate: function(user) {
+        user.emailKey = require('crypto').randomBytes(32).toString('hex');
+      },
+      afterCreate: [
+        function(user) {
+          console.log("USER '" + user.username + "' WAS CREATED! WOO!!");
+        }
+      ]
     }
   });
   return User;
