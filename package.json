@@ -33,7 +33,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-messages": "^1.0.1",
-    "express-session": "^1.14.1",
+    "express-session": "1.15.6",
     "jspm": "^0.16.45",
     "pg": "^6.1.0",
     "pug": "^2.0.0-beta6",
